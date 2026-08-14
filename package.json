@@ -1,0 +1,51 @@
+{
+	"name": "n8n-nodes-weinc",
+	"version": "0.1.0",
+	"description": "n8n community node for WeInc (we.inc) - AI website builder. Manage projects, clients, and analytics via the WeInc Agency API.",
+	"license": "MIT",
+	"homepage": "https://we.inc",
+	"keywords": [
+		"n8n-community-node-package",
+		"weinc",
+		"website-builder",
+		"ai"
+	],
+	"author": {
+		"name": "WeInc",
+		"email": "support@weinc.dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/umairalisadaqat/n8n-nodes-weinc.git"
+	},
+	"engines": {
+		"node": ">=18.10"
+	},
+	"main": "index.js",
+	"scripts": {
+		"build": "rimraf dist && tsc && node scripts/copy-assets.mjs",
+		"dev": "tsc --watch",
+		"lint": "eslint nodes credentials package.json || true",
+		"prepublishOnly": "npm run build"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"credentials": [
+			"dist/credentials/WeIncApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/WeInc/WeInc.node.js"
+		]
+	},
+	"devDependencies": {
+		"n8n-workflow": "^1.70.0",
+		"rimraf": "^5.0.5",
+		"typescript": "^5.5.4"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
