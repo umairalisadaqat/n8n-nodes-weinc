@@ -1,0 +1,10 @@
+{
+  "node": "n8n-nodes-weinc.weInc",
+  "nodeVersion": "1.0",
+  "codexVersion": "1.0",
+  "categories": ["Development", "Marketing & Content"],
+  "resources": {
+    "credentialDocumentation": [{ "url": "https://my.we.inc/api/v1/docs" }],
+    "primaryDocumentation": [{ "url": "https://github.com/umairalisadaqat/n8n-nodes-weinc#readme" }]
+  }
+}

@@ -10,6 +10,8 @@ export class WeIncApi implements ICredentialType {
 
 	displayName = 'WeInc API';
 
+	icon = { light: 'file:weinc.svg', dark: 'file:weinc.dark.svg' } as const;
+
 	documentationUrl = 'https://my.we.inc/api/v1/docs';
 
 	properties: INodeProperties[] = [
@@ -20,8 +22,14 @@ export class WeIncApi implements ICredentialType {
 			typeOptions: { password: true },
 			default: '',
 			required: true,
-			description:
-				'API key generated from your WeInc agency dashboard (starts with wk_)',
+			description: 'Organization API key from WeInc (starts with wk_)',
+		},
+		{
+			displayName: 'Base URL',
+			name: 'baseUrl',
+			type: 'string',
+			default: 'https://my.we.inc/api/v1',
+			description: 'Leave as is unless you use a white-label WeInc domain',
 		},
 	];
 
@@ -36,7 +44,7 @@ export class WeIncApi implements ICredentialType {
 
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: 'https://my.we.inc/api/v1',
+			baseURL: '={{$credentials.baseUrl}}',
 			url: '/projects',
 			qs: { limit: 1 },
 		},
